@@ -24,10 +24,10 @@ jobs:
       - name: Configure .npmrc file
         uses: actions/setup-node@v4
         with:
-        node-version: '22.x'
-        registry-url: 'https://npm.pkg.github.com'
-        # Owner of the workflow
-        scope: '@errcdeveloper'
+          node-version: '22.x'
+          registry-url: 'https://npm.pkg.github.com'
+          # Owner of the workflow
+          scope: '@errcdeveloper'
       
       - name: Install dependencies from package-lock.json file
         run: npm ci
