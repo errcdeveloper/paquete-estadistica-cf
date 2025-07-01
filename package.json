@@ -1,0 +1,28 @@
+{
+  "name": "paquete-estadistica-cf",
+  "version": "1.0.0",
+  "description": "Funciones estadísticas y generación de gráficas con Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/errcdeveloper/paquete-estadistica-cf.git"
+  },
+  "keywords": [],
+  "author": "Eduardo Ramirez",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/errcdeveloper/paquete-estadistica-cf/issues"
+  },
+  "homepage": "https://github.com/errcdeveloper/paquete-estadistica-cf#readme",
+  "dependencies": {
+    "canvas": "^3.1.2",
+    "chart.js": "^4.5.0",
+    "chartjs-node-canvas": "^5.0.0"
+  }
+}

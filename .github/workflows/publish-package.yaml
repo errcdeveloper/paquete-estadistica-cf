@@ -1,0 +1,37 @@
+name: Publish the package into Github Packages
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-package:
+    runs-on: macos-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      # Configure .npmrc file to publish the package
+      # setup-node action creates a file in the runner
+      # When you use the “scope” input in the setup-node action, the .npmrc file includes the scope prefix.
+      # Use the token from the NODE_AUTH_TOKEN environment variable (actually GITHUB_TOKEN) as a reference.
+
+      - name: Configure .npmrc file
+        uses: actions/setup-node@v4
+        with:
+        node-version: '22.x'
+        registry-url: 'https://npm.pkg.github.com'
+        # Owner of the workflow
+        scope: '@errcdeveloper'
+      
+      - name: Install dependencies from package-lock.json file
+        run: npm ci
+      - name: Publish the package into GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
